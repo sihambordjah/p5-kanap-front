@@ -449,17 +449,22 @@ else {
             };
                 //console.log(options);
             // on envoie les données Contact et l'id des produits à l'API
-            fetch("http://localhost:3000/api/products/order", options)
-            .then((response) => response.json())
-            .then((data) => {
-                    //console.log(data);
+            fetch(
+              "https://api-kanap-ykfi.onrender.com/api/products/order",
+              options
+            )
+              .then((response) => response.json())
+              .then((data) => {
+                //console.log(data);
                 // on redirige vers la page de confirmation de commande en passant l'orderId (numéro de commande) dans l'URL
                 document.location.href = `confirmation.html?orderId=${data.orderId}`;
-            })
-            .catch((err) => {
+              })
+              .catch((err) => {
                 console.log("Erreur Fetch product.js", err);
-                alert ("Un problème a été rencontré lors de l'envoi du formulaire.");
-            });
+                alert(
+                  "Un problème a été rencontré lors de l'envoi du formulaire."
+                );
+              });
             //----------------------------------------------On vide le localStorage---------------------------------------------------------------
             localStorage.clear();
         }; //fin else
